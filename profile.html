@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Profile - SkillSwap</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <style>
+    body {
+      background-color: #f8f9fa;
+    }
+    .profile-header {
+      background-color: #00695c;
+      color: white;
+      padding: 2rem 0;
+      text-align: center;
+    }
+    .card {
+      margin-bottom: 2rem;
+    }
+    .btn-custom {
+      background-color: #0288d1;
+      color: white;
+    }
+    .btn-custom:hover {
+      background-color: #0277bd;
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-info">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">SkillSwap</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item active"><a class="nav-link" href="profile.html">My Profile</a></li>
+          <li class="nav-item"><a class="nav-link" href="browse.html">Browse Skills</a></li>
+          <li class="nav-item"><a class="nav-link" href="admin.html">Admin</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <section class="profile-header">
+    <div class="container">
+      <h1>Welcome</h1>
+      <p>Edit your skills and manage your swap requests.</p>
+    </div>
+  </section>
+
+  <div class="container py-4">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-header bg-info text-white">Skills Offered</div>
+          <div class="card-body">
+            <ul class="list-group" id="skills-offered">
+              <li class="list-group-item">JavaScript</li>
+              <li class="list-group-item">Public Speaking</li>
+              <li class="list-group-item">Photography</li>
+            </ul>
+            <div class="input-group mt-3">
+              <input type="text" id="new-skill" class="form-control" placeholder="Enter a new skill">
+              <div class="input-group-append">
+                <button class="btn btn-custom" id="add-skill">Add Skill</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-header bg-info text-white">Skills Wanted</div>
+          <div class="card-body">
+            <ul class="list-group" id="skills-wanted">
+              <li class="list-group-item">Excel</li>
+              <li class="list-group-item">Guitar</li>
+            </ul>
+            <div class="input-group mt-3">
+              <input type="text" id="new-interest" class="form-control" placeholder="Enter an interest">
+              <div class="input-group-append">
+                <button class="btn btn-custom" id="add-interest">Add Interest</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header bg-info text-white">Swap Requests</div>
+          <div class="card-body">
+            <table class="table table-hover">
+              <thead>
+                <tr>
+                  <th>User</th>
+                  <th>Skill Offered</th>
+                  <th>Skill Wanted</th>
+                  <th>Status</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="swap-requests">
+                <tr>
+                  <td>Riya Sharma</td>
+                  <td>Cooking</td>
+                  <td>Photography</td>
+                  <td><span class="badge badge-warning">Pending</span></td>
+                  <td>
+                    <button class="btn btn-sm btn-success btn-accept">Accept</button>
+                    <button class="btn btn-sm btn-danger btn-reject">Reject</button>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Rahul Mehta</td>
+                  <td>Excel</td>
+                  <td>JavaScript</td>
+                  <td><span class="badge badge-success">Accepted</span></td>
+                  <td>
+                    <button class="btn btn-sm btn-outline-secondary btn-delete">Delete</button>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Neha Jain</td>
+                  <td>Yoga</td>
+                  <td>Public Speaking</td>
+                  <td><span class="badge badge-warning">Pending</span></td>
+                  <td>
+                    <button class="btn btn-sm btn-success btn-accept">Accept</button>
+                    <button class="btn btn-sm btn-danger btn-reject">Reject</button>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Vikram Solanki</td>
+                  <td>Python</td>
+                  <td>Photography</td>
+                  <td><span class="badge badge-warning">Pending</span></td>
+                  <td>
+                    <button class="btn btn-sm btn-success btn-accept">Accept</button>
+                    <button class="btn btn-sm btn-danger btn-reject">Reject</button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer-simple mt-auto bg-dark text-white text-center py-3">
+    <div class="container">
+      <p class="mb-1">&copy; 2025 SkillSwap. All rights reserved.</p>
+      <a href="#" class="text-warning mx-2">Privacy</a>
+      <a href="#" class="text-warning mx-2">Terms</a>
+      <a href="#" class="text-warning mx-2">Contact</a>
+    </div>
+  </footer>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      document.querySelectorAll(".btn-accept").forEach(button => {
+        button.addEventListener("click", () => {
+          alert("Swap accepted.");
+        });
+      });
+
+      document.querySelectorAll(".btn-reject").forEach(button => {
+        button.addEventListener("click", () => {
+          alert("Swap rejected.");
+        });
+      });
+
+      document.querySelectorAll(".btn-delete").forEach(button => {
+        button.addEventListener("click", () => {
+          alert("Swap request deleted.");
+        });
+      });
+
+      document.getElementById("add-skill").addEventListener("click", function () {
+        const newSkill = document.getElementById("new-skill").value.trim();
+        if (newSkill) {
+          const li = document.createElement("li");
+          li.className = "list-group-item";
+          li.textContent = newSkill;
+          document.getElementById("skills-offered").appendChild(li);
+          document.getElementById("new-skill").value = "";
+        }
+      });
+
+      document.getElementById("add-interest").addEventListener("click", function () {
+        const newInterest = document.getElementById("new-interest").value.trim();
+        if (newInterest) {
+          const li = document.createElement("li");
+          li.className = "list-group-item";
+          li.textContent = newInterest;
+          document.getElementById("skills-wanted").appendChild(li);
+          document.getElementById("new-interest").value = "";
+        }
+      });
+
+      const newSwap = JSON.parse(localStorage.getItem("newSwap"));
+      if (newSwap) {
+        const tr = document.createElement("tr");
+        tr.innerHTML = `
+          <td>${newSwap.user}</td>
+          <td>${newSwap.offers}</td>
+          <td>${newSwap.wants}</td>
+          <td><span class="badge badge-warning">Pending</span></td>
+          <td>
+            <button class="btn btn-sm btn-success btn-accept">Accept</button>
+            <button class="btn btn-sm btn-danger btn-reject">Reject</button>
+          </td>
+        `;
+        document.getElementById("swap-requests").appendChild(tr);
+        localStorage.removeItem("newSwap");
+      }
+    });
+  </script>
+</body>
+</html>
