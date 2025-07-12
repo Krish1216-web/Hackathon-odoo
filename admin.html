@@ -1,0 +1,141 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Dashboard - SkillSwap</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <style>
+    body {
+      background-color: #f8f9fa;
+    }
+    .admin-header {
+      background-color: #6610f2;
+      color: white;
+      padding: 2rem 0;
+      text-align: center;
+    }
+    .card {
+      margin-bottom: 2rem;
+    }
+    .btn-custom {
+      background-color: #007bff;
+      color: white;
+    }
+    .btn-custom:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">SkillSwap</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="profile.html">My Profile</a></li>
+          <li class="nav-item"><a class="nav-link" href="browse.html">Browse Skills</a></li>
+          <li class="nav-item active"><a class="nav-link" href="admin.html">Admin</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <section class="admin-header">
+    <div class="container">
+      <h1>Admin Dashboard</h1>
+      <p>Manage reports, users, and platform settings.</p>
+    </div>
+  </section>
+
+  <div class="container py-4">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-header bg-primary text-white">Moderate Skills</div>
+          <div class="card-body">
+            <ul class="list-group" id="skill-list">
+              <li class="list-group-item d-flex justify-content-between align-items-center">Photoshop <button class="btn btn-sm btn-danger reject-skill">Reject</button></li>
+              <li class="list-group-item d-flex justify-content-between align-items-center">Dancing <button class="btn btn-sm btn-danger reject-skill">Reject</button></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header bg-primary text-white">Broadcast Message</div>
+          <div class="card-body">
+            <textarea id="broadcast-text" class="form-control mb-2" rows="3" placeholder="Type your message..."></textarea>
+            <button class="btn btn-custom" id="send-broadcast">Send Message</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-header bg-primary text-white">Manage Users</div>
+          <div class="card-body">
+            <ul class="list-group" id="user-list">
+              <li class="list-group-item d-flex justify-content-between align-items-center">Anjali Sharma <button class="btn btn-sm btn-danger ban-user">Ban</button></li>
+              <li class="list-group-item d-flex justify-content-between align-items-center">Manav Singh <button class="btn btn-sm btn-danger ban-user">Ban</button></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header bg-primary text-white">Download Reports</div>
+          <div class="card-body">
+            <button class="btn btn-outline-primary btn-block">Download Activity Report</button>
+            <button class="btn btn-outline-secondary btn-block">Download Feedback Log</button>
+            <button class="btn btn-outline-success btn-block">Download Swap Stats</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer-simple mt-auto bg-dark text-white text-center py-3">
+    <div class="container">
+      <p class="mb-1">&copy; 2025 SkillSwap. All rights reserved.</p>
+      <a href="#" class="text-warning mx-2">Privacy</a>
+      <a href="#" class="text-warning mx-2">Terms</a>
+      <a href="#" class="text-warning mx-2">Contact</a>
+    </div>
+  </footer>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      document.querySelectorAll(".reject-skill").forEach(button => {
+        button.addEventListener("click", () => {
+          alert("Skill rejected and removed.");
+          button.parentElement.remove();
+        });
+      });
+
+      document.querySelectorAll(".ban-user").forEach(button => {
+        button.addEventListener("click", () => {
+          alert("User has been banned.");
+          button.parentElement.remove();
+        });
+      });
+
+      document.getElementById("send-broadcast").addEventListener("click", () => {
+        const message = document.getElementById("broadcast-text").value.trim();
+        if (message) {
+          alert("Message sent: " + message);
+          document.getElementById("broadcast-text").value = "";
+        } else {
+          alert("Please enter a message before sending.");
+        }
+      });
+    });
+  </script>
+</body>
+</html>
